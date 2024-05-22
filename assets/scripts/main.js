@@ -62,14 +62,7 @@ function getRecipesFromStorage() {
 	// A9. TODO - Complete the functionality as described in this function
 	//           header. It is possible in only a single line, but should
 	//           be no more than a few lines.
-	try {
-		const recipes = JSON.parse(localStorage.getItem('recipes'));
-		return recipes ? recipes : [];
-	} catch (error) {
-		// If the data is not valid JSON, clear localStorage and return an empty array
-		localStorage.removeItem('recipes');
-		return [];
-	}
+	return JSON.parse(localStorage.getItem('recipes')) || [];
 }
 
 /**
@@ -117,7 +110,6 @@ function initFormHandler() {
 
 	// B3. Add an event listener for the 'submit' event, which fires when the submit button is clicked
 	form.addEventListener('submit', (event) => {
-		event.preventDefault();
 
    	 	// Steps B4-B9 will occur inside the event listener from step B3
     	// B4. Create a new FormData object from the <form> element reference above
